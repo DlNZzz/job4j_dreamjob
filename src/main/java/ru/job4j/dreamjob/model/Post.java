@@ -12,8 +12,7 @@ public class Post {
         this.id = id;
         this.name = name;
     }
-
-
+    
     public Post(int id, String name, String description, String created) {
         this.id = id;
         this.name = name;
