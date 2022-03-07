@@ -19,17 +19,31 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Dream Job, <small th:text="${user}"></small></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Главная</a>
+                <a class="nav-item nav-link" th:href="@{/posts}">Вакансии</a>
+                <a class="nav-item nav-link active" th:href="@{/addPost}">Добавить вакансию</a>
+                <a class="nav-item nav-link" th:href="@{/cadidates}">Кандидаты</a>
+            </div>
+        </div>
+    </nav>
+    <div class="row pt-3">
         <div class="card" style="width: 100%">
             <div class="card-header">
                 Новая вакансия.
             </div>
             <div class="card-body">
-                <form>
+                <form th:action="@{/savePost}" method="POST">
+                    <input type="hidden" name="id" value="0"/>
                     <div class="form-group">
-                        <label>Имя
-                            <input type="text" class="form-control">
-                        </label>
+                        <label for="name">Имя</label>
+                        <input type="text" class="form-control" name="name" id="name">
                     </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                 </form>
