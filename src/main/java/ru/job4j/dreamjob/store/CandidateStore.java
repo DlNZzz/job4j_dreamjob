@@ -1,6 +1,7 @@
 package ru.job4j.dreamjob.store;
 
 import ru.job4j.dreamjob.model.Candidate;
+import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
 import java.util.Map;
@@ -24,5 +25,21 @@ public class CandidateStore {
 
     public Collection<Candidate> findAll() {
         return candidates.values();
+    }
+
+    public void add(Candidate candidate) {
+        candidates.put(candidate.getId(), candidate);
+    }
+
+    public Object findById(int id) {
+        return candidates.get(id);
+    }
+
+    public void update(Candidate candidate) {
+        candidates.put(candidate.getId(), candidate);
+    }
+
+    public void create(Candidate candidate) {
+        candidates.put(candidate.getId(), candidate);
     }
 }
