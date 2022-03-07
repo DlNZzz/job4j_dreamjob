@@ -4,7 +4,6 @@ import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PostStore {
@@ -30,5 +29,17 @@ public class PostStore {
 
     public void add(Post post) {
         posts.put(++count, post);
+    }
+
+    public Object findById(int id) {
+        return posts.get(id);
+    }
+
+    public void update(Post post) {
+        posts.put(post.getId(), post);
+    }
+
+    public void create(Post post) {
+        posts.put(post.getId(), post);
     }
 }
