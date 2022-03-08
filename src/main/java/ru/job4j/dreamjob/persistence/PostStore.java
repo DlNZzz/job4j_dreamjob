@@ -4,14 +4,13 @@ import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class PostStore {
-
-    private static final PostStore INST = new PostStore();
 
     private final Map<Integer, Post> posts = new ConcurrentHashMap<>();
     private AtomicInteger count = new AtomicInteger(3);
@@ -22,27 +21,20 @@ public class PostStore {
         posts.put(3, new Post(3, "Senior Java Job", "Senior", "05.03.22"));
     }
 
-    public static PostStore instOf() {
-        return INST;
-    }
-
     public Collection<Post> findAll() {
         return posts.values();
     }
 
     public void add(Post post) {
-        posts.put(count.incrementAndGet(), post);
-    }
-
-    public Object findById(int id) {
-        return posts.get(id);
+        post.setId(count.incrementAndGet());
+        posts.put(post.getId(), post);
     }
 
     public void update(Post post) {
-        posts.put(post.getId(), post);
-    }
-
-    public void create(Post post) {
-        posts.put(post.getId(), post);
+        for (Map.Entry<Integer, Post> postEntry : posts.entrySet()) {
+            if (postEntry.getValue().getId() == post.getId()) {
+                posts.put(postEntry.getKey(), post);
+            }
+        }
     }
 }
