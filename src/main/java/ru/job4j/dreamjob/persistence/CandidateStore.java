@@ -1,7 +1,6 @@
-package ru.job4j.dreamjob.store;
+package ru.job4j.dreamjob.persistence;
 
 import ru.job4j.dreamjob.model.Candidate;
-import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
 import java.util.Map;
