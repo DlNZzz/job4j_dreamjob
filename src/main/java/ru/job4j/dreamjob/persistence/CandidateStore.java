@@ -1,5 +1,7 @@
 package ru.job4j.dreamjob.persistence;
 
+import net.jcip.annotations.ThreadSafe;
+import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.model.Post;
 
@@ -7,6 +9,8 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@ThreadSafe
+@Repository
 public class CandidateStore {
 
     private static final CandidateStore INST = new CandidateStore();
