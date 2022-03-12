@@ -25,12 +25,7 @@ public class PostService {
     }
 
     public Object findById(int id) {
-        for (Post post : findAll()) {
-            if (post.getId() == id) {
-                return post;
-            }
-        }
-        return null;
+        return store.get(id);
     }
 
     public void update(Post post) {

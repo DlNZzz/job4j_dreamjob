@@ -1,6 +1,7 @@
 package ru.job4j.dreamjob.persistence;
 
 import ru.job4j.dreamjob.model.Candidate;
+import ru.job4j.dreamjob.model.Post;
 
 import java.util.Collection;
 import java.util.Map;
@@ -40,5 +41,9 @@ public class CandidateStore {
 
     public void create(Candidate candidate) {
         candidates.put(candidate.getId(), candidate);
+    }
+
+    public Candidate get(int id) {
+        return candidates.get(id);
     }
 }

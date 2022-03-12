@@ -23,12 +23,7 @@ public class CandidateService {
     }
 
     public Object findById(int id) {
-        for (Candidate candidate : findAll()) {
-            if (candidate.getId() == id) {
-                return candidate;
-            }
-        }
-        return null;
+        return store.get(id);
     }
 
     public void update(Candidate candidate) {

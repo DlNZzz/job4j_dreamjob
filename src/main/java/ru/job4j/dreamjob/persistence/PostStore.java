@@ -31,10 +31,10 @@ public class PostStore {
     }
 
     public void update(Post post) {
-        for (Map.Entry<Integer, Post> postEntry : posts.entrySet()) {
-            if (postEntry.getValue().getId() == post.getId()) {
-                posts.put(postEntry.getKey(), post);
-            }
-        }
+        posts.replace(post.getId(), post);
+    }
+
+    public Post get(int id) {
+        return posts.get(id);
     }
 }
