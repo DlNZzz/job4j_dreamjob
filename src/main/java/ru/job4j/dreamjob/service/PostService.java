@@ -5,7 +5,6 @@ import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.persistence.PostStore;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Service
