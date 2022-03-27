@@ -1,12 +1,15 @@
 package ru.job4j.dreamjob.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Post {
+public class Post implements Serializable {
     private int id;
     private String name;
     private String description;
     private String created;
+    private boolean visible;
+    private City city;
 
     public Post() {
     }
@@ -55,6 +58,14 @@ public class Post {
         this.name = name;
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,5 +81,15 @@ public class Post {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", created='" + created + '\'' +
+                '}';
     }
 }
