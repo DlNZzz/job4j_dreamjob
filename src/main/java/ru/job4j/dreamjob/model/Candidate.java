@@ -1,12 +1,17 @@
 package ru.job4j.dreamjob.model;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Candidate {
     private int id;
     private String name;
+    private byte[] photo;
     private String description;
     private String created;
+
+    public Candidate() {
+    }
 
     public Candidate(int id, String name) {
         this.id = id;
@@ -34,6 +39,14 @@ public class Candidate {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public byte[] getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(byte[] photo) {
+        this.photo = photo;
     }
 
     public String getDescription() {
@@ -70,5 +83,16 @@ public class Candidate {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, description, created);
+    }
+
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", photo=" + Arrays.toString(photo) +
+                ", description='" + description + '\'' +
+                ", created='" + created + '\'' +
+                '}';
     }
 }

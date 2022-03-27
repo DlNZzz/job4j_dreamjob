@@ -37,4 +37,8 @@ public class CandidateService {
     public void create(Candidate candidate) {
         store.add(candidate);
     }
+
+    public Candidate getById(Integer candidateId) {
+        return store.getById(candidateId);
+    }
 }

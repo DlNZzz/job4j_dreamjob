@@ -50,4 +50,10 @@ public class CandidateStore {
     public Candidate get(int id) {
         return candidates.get(id);
     }
+
+    public Candidate getById(Integer candidateId) {
+        System.out.println(candidateId + "           id");
+        System.out.println(candidates.containsKey(candidateId));
+        return candidates.get(candidateId);
+    }
 }
