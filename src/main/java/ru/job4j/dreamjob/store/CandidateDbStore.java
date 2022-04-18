@@ -41,7 +41,7 @@ public class CandidateDbStore {
         return candidates;
     }
 
-    public void add(Candidate candidate) {
+    public Candidate add(Candidate candidate) {
         try (Connection connection = pool.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "INSERT INTO candidate(name, photo, description, created) " +
@@ -60,6 +60,7 @@ public class CandidateDbStore {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return candidate;
     }
 
     public void update(Candidate candidate) {
@@ -71,6 +72,7 @@ public class CandidateDbStore {
             preparedStatement.setBytes(2, candidate.getPhoto());
             preparedStatement.setString(3, candidate.getDescription());
             preparedStatement.setString(4, candidate.getCreated());
+            preparedStatement.setInt(5, candidate.getId());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();

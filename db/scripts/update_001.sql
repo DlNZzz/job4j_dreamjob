@@ -1,4 +1,6 @@
-CREATE TABLE post (
+DROP TABLE IF EXISTS post;
+
+CREATE TABLE IF NOT EXISTS post (
    id SERIAL PRIMARY KEY,
    name TEXT,
    description text,

@@ -19,6 +19,14 @@ public class Post implements Serializable {
         this.name = name;
     }
 
+    public Post(String name, String description, String created, boolean visible, City city) {
+        this.name = name;
+        this.description = description;
+        this.created = created;
+        this.visible = visible;
+        this.city = city;
+    }
+
     public Post(int id, String name, String description, String created, boolean visible, City city) {
         this.id = id;
         this.name = name;
@@ -100,6 +108,8 @@ public class Post implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", created='" + created + '\'' +
+                ", visible=" + visible +
+                ", city=" + city +
                 '}';
     }
 }

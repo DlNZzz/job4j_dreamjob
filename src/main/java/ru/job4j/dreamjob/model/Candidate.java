@@ -18,6 +18,13 @@ public class Candidate {
         this.name = name;
     }
 
+    public Candidate(String name, byte[] photo, String description, String created) {
+        this.name = name;
+        this.photo = photo;
+        this.description = description;
+        this.created = created;
+    }
+
     public Candidate(int id, String name, String description, String created) {
         this.id = id;
         this.name = name;

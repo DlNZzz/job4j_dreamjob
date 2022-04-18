@@ -4,7 +4,6 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.stereotype.Repository;
 import ru.job4j.dreamjob.model.City;
 import ru.job4j.dreamjob.model.Post;
-import ru.job4j.dreamjob.service.CityService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class PostDBStore {
+public class PostDbStore {
 
     private final BasicDataSource pool;
 
-    public PostDBStore(BasicDataSource pool) {
+    public PostDbStore(BasicDataSource pool) {
         this.pool = pool;
     }
 
