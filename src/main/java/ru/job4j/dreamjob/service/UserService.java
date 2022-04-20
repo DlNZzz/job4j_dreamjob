@@ -18,4 +18,8 @@ public class UserService {
     public Optional<User> add(User user) {
         return userDbStore.add(user);
     }
+
+    public Optional<User> findUserByEmailAndPwd(String email, String password) {
+        return userDbStore.findUserByEmailAndPwd(email, password);
+    }
 }

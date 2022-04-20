@@ -2,6 +2,7 @@ package ru.job4j.dreamjob.store;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.stereotype.Repository;
+import ru.job4j.dreamjob.model.Post;
 import ru.job4j.dreamjob.model.User;
 
 import java.sql.Connection;
@@ -37,5 +38,27 @@ public class UserDbStore {
             return Optional.empty();
         }
         return Optional.of(user);
+    }
+
+    public Optional<User> findUserByEmailAndPwd(String email, String password) {
+        try (Connection connection = pool.getConnection();
+             PreparedStatement preparedStatement = connection
+                     .prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?;"
+             )
+        ) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, password);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return Optional.of(new User(resultSet.getInt("id"),
+                            resultSet.getString("email"),
+                            resultSet.getString("password")
+                    ));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 }

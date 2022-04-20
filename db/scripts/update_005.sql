@@ -5,3 +5,5 @@ CREATE TABLE users (
 );
 
 ALTER TABLE users ADD CONSTRAINT email_unique UNIQUE (email);
+
+SELECT * FROM users WHERE email = '1' AND password = '123,345';
