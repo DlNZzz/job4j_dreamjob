@@ -44,7 +44,7 @@ public class PostController {
         }
         model.addAttribute("user", user);
         model.addAttribute("post", new Post(0, "Заполните поле"));
-        model.addAttribute("cities", cityService.getAllCities());
+        model.addAttribute("cities", CityService.getAllCities());
         return "addPost";
     }
 
@@ -57,7 +57,7 @@ public class PostController {
     @GetMapping("/formUpdatePost/{postId}")
     public String formUpdatePost(Model model, @PathVariable("postId") int id) {
         model.addAttribute("post", postService.findById(id));
-        model.addAttribute("cities", cityService.getAllCities());
+        model.addAttribute("cities", CityService.getAllCities());
         return "updatePost";
     }
 
@@ -69,7 +69,7 @@ public class PostController {
 
     @PostMapping("/createPost")
     public String createPost(@ModelAttribute Post post, @RequestParam("city.id") int id) {
-        post.setCity(cityService.findById(id));
+        post.setCity(CityService.findById(id));
         postService.add(post);
         return "redirect:/posts";
     }
